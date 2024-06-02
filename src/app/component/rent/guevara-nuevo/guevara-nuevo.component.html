@@ -10,13 +10,13 @@
 
             <mat-form-field>
                 <mat-label>RentDays</mat-label>
-                <input matInput formControlName="rentDays">
+                <input type="number" matInput formControlName="rentDays">
             </mat-form-field>
             <br>
 
             <mat-form-field>
                 <mat-label>RentDate</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="rentDate" max="maxDate" >
+                <input [(ngModel)]="Todate" matInput [matDatepicker]="picker" formControlName="rentDate" max="maxDate" >
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -43,14 +43,14 @@
 
             <br>
 
-            <mat-form-field>
-                <mat-label>Insurance</mat-label>
-                <mat-select formControlName="insurance" >
-                    <mat-option value="true">True</mat-option>
-                    <mat-option value="false">False</mat-option>
-                </mat-select>
-            </mat-form-field>
-
+            <label>Insurance</label>
+            <br>    
+            <mat-radio-group aria-label="Insurance" formControlName="insurance">
+                <mat-radio-button value="True">True</mat-radio-button>
+                <mat-radio-button value="False">False</mat-radio-button>
+            </mat-radio-group>
+ 
+        
             <br>
 
             <div class="button-sub-form">

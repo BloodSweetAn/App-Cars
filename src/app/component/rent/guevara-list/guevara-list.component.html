@@ -1,3 +1,13 @@
+<div class="container">
+  <h1 style="text-align: center;">Listado de rentas</h1>
+<mat-grid-list cols="1" rowHeight="4em">
+  <mat-grid-tile>
+    <mat-form-field> 
+      <input matInput (keyup) = "filtrar($event)" placeholder="Buscar clasico">
+    </mat-form-field>
+  </mat-grid-tile>
+</mat-grid-list>
+
 <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="id">
@@ -44,7 +54,8 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Total </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{(element.pricePerDay * element.rentDays * 1.035)| number:'1.2-2' }} </mat-cell>
       </ng-container>
-        <!--  
+        <!-- 
+
       <ng-container matColumnDef="aniostotal">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Años antiguedad </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
@@ -54,7 +65,8 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha fin </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
       </ng-container>
-      -->
+      
+       -->
         
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

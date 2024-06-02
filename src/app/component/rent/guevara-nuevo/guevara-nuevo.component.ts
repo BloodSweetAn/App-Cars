@@ -22,7 +22,7 @@ export class GuevaraNuevoComponent {
     this.form = new FormGroup(
       {
         clientName: new FormControl('', [Validators.required , Validators.minLength(5)]),
-        rentDays: new FormControl('', [Validators.required]),
+        rentDays: new FormControl('', [Validators.required, Validators.min(0)]),
         rentDate: new FormControl(),
         pricePerDay: new FormControl('', [Validators.required]),
         plate: new FormControl('', [Validators.required]),
@@ -46,13 +46,16 @@ export class GuevaraNuevoComponent {
     maxDate.setDate(this.Todate.getDate()+1);
     maxDate.setHours(0,0,0,0);
 
-    const invalidDate = this.form.get('rentDate')?.value >= maxDate;
+    const invalidDate = this.form.get('rentDate')?.value <= maxDate;
+    const invalidRent = this.form.get('rentDays') ?.value <= 0;
 
+    if(this.form.valid || invalidRent || invalidDate){
 
-    if(this.form.valid || invalidDate){
-
-      if(invalidDate){
+      if(invalidRent){
+        this.openSnackBar("Los dias de rentas no pueden ser en negativo", "Cerrar");
+      }else if(invalidDate){
         this.form.get('rentDate')?.setErrors({invalidDate:true});
+        this.openSnackBar("La fecha no puede ser menor que la actual", "Cerrar");
       }else{
         this.rentService.create(this.rent).subscribe((data)=>{
           this.rentService.list().subscribe(data => {

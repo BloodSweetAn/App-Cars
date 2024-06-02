@@ -29,6 +29,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RentComponent } from './component/rent/rent.component';
 import { GuevaraNuevoComponent } from './component/rent/guevara-nuevo/guevara-nuevo.component';
 import { GuevaraListComponent } from './component/rent/guevara-list/guevara-list.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { GuevaraListComponent } from './component/rent/guevara-list/guevara-list
     CarListComponent,
     RentComponent,
     GuevaraNuevoComponent,
-    GuevaraListComponent
+    GuevaraListComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,10 @@ import { GuevaraListComponent } from './component/rent/guevara-list/guevara-list
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync(),

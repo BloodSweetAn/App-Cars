@@ -20,11 +20,11 @@ const routes: Routes = [
         path:'nuevo-rent', component: GuevaraNuevoComponent
       },
       {
-        path:'listado-rent', component: GuevaraListComponent
+        path:'listado-rent', component: GuevaraListComponent       
       },
       
     ]
-    
+
   },
   
 ];

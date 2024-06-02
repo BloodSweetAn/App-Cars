@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,9 +11,9 @@ import { RentService } from '../../../service/rent.service';
   templateUrl: './guevara-list.component.html',
   styleUrl: './guevara-list.component.scss'
 })
-export class GuevaraListComponent {
+export class GuevaraListComponent implements OnInit {
   lista: Rent[] = [];
-  displayedColumns = ['id', 'clientName', 'rentDays', 'rentDate', 'pricePerDay' ,'plate', 'brand' ,'insurance', 'priceTotal','aniostotal'];
+  displayedColumns = ['id', 'clientName', 'rentDays', 'rentDate', 'pricePerDay' ,'plate', 'brand' ,'insurance', 'priceTotal'];
   dataSource = new MatTableDataSource<Rent>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,5 +37,9 @@ export class GuevaraListComponent {
       this.dataSource.data=data;
     });
     //this.authorService.list().subscribe(data=> this.dataSource = new MatTableDataSource(data));
+  }
+
+  filtrar(e:any){
+    this.dataSource.filter = e.target.value.trim();
   }
 }
