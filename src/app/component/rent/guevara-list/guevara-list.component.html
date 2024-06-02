@@ -1,0 +1,70 @@
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="clientName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > Client Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.clientName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="rentDays">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Dias de renta </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.rentDays}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="rentDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de renta </mat-header-cell>
+        <mat-cell *matCellDef="let element" > {{element.rentDate| date : "dd/MM/yyyy"}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="pricePerDay">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Precio por dia </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.pricePerDay}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="plate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Plate </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.plate}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Brand </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.brand}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="insurance">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Insurance </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.insurance}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="priceTotal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Total </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{(element.pricePerDay * element.rentDays * 1.035)| number:'1.2-2' }} </mat-cell>
+      </ng-container>
+        <!--  
+      <ng-container matColumnDef="aniostotal">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Años antiguedad </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="fechafin">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha fin </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
+      </ng-container>
+      -->
+        
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator
+    #paginator
+    [pageSize]="4"
+    [pageSizeOptions]="[4, 8, 12]"
+    [showFirstLastButtons]="true"
+    >
+    </mat-paginator>
+  </div>

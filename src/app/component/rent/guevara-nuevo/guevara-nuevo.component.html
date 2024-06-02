@@ -1,0 +1,64 @@
+<body>
+    <div class="form-body">
+        <form [formGroup]="form" (submit)="aceptar()">
+           
+            <mat-form-field>
+                <mat-label>ClientName</mat-label>
+                <input matInput formControlName="clientName">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>RentDays</mat-label>
+                <input matInput formControlName="rentDays">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>RentDate</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="rentDate" max="maxDate" >
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        
+            <br>
+
+            <mat-form-field>
+                <mat-label>PricePerDay</mat-label>
+                <input type="number" matInput formControlName="pricePerDay">
+            </mat-form-field>
+            <br>
+            
+            <mat-form-field>
+                <mat-label>Plate</mat-label>
+                <input matInput formControlName="plate">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>Brand</mat-label>
+                <input matInput formControlName="brand">
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field>
+                <mat-label>Insurance</mat-label>
+                <mat-select formControlName="insurance" >
+                    <mat-option value="true">True</mat-option>
+                    <mat-option value="false">False</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <br>
+
+            <div class="button-sub-form">
+                <button mat-raised-button (click)="openSnackBar('Se registro correctamento','Aceptar')" type="submit" color="primary">Aceptar</button>
+                <button mat-raised-button color="warn" routerLink="/Guevara/listado-rent">Cancelar</button>
+            </div>
+        
+            <p>{{mensaje}}</p>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,19 @@
+body{
+    height: calc(100vh - 4rem);
+    background-color: rgba(0, 0, 0, 0.099);
+    .form-body {
+        padding-top: 2rem;
+        form{
+            width: 15rem;
+            margin: auto;
+        }
+        mat-form-field{
+            display: flex;
+            justify-content: center;
+        }
+        .button-sub-form{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+mat-toolbar-row{
+    display: flex;
+    justify-content: space-between;
+    .btn-nav{
+        width: 32rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+}

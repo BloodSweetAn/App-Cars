@@ -1,0 +1,56 @@
+<body>
+    <div class="form-body">
+        <form [formGroup]="form" (submit)="aceptar()">
+           
+            <mat-form-field>
+                <mat-label>Plate</mat-label>
+                <input matInput formControlName="plate">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field>
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="brand" >
+                    <mat-option value="Toyota">Toyota</mat-option>
+                    <mat-option value="Ford">Ford</mat-option>
+                    <mat-option value="Nissan">Nissan</mat-option>
+                </mat-select>
+              </mat-form-field>
+    
+            <br>
+
+            <mat-form-field>
+                <mat-label>Fecha de ffabricacion</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fabricationDate" max="maxDate" >
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        
+            <br>
+            
+            <mat-form-field>
+                <mat-label>Model</mat-label>
+                <mat-select formControlName="model" >
+                    <mat-option value="Yaris">Yaris</mat-option>
+                    <mat-option value="Fiesta">Fiesta</mat-option>
+                    <mat-option value="Carmi">Carmi</mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+            <br>
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input type="number" matInput formControlName="price">
+            </mat-form-field>
+            <br>
+
+            <div class="button-sub-form">
+                <button mat-raised-button (click)="openSnackBar('Se registro correctamento','Aceptar')" type="submit" color="primary">Aceptar</button>
+                <button mat-raised-button color="warn" routerLink="/Guevara/listado">Cancelar</button>
+            </div>
+        
+            <p>{{mensaje}}</p>
+        </form>
+    </div>
+</body>
