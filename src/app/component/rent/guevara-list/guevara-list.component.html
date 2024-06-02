@@ -54,19 +54,18 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Total </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{(element.pricePerDay * element.rentDays * 1.035)| number:'1.2-2' }} </mat-cell>
       </ng-container>
-        <!-- 
+       
 
       <ng-container matColumnDef="aniostotal">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Años antiguedad </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{calcularAntiguedad(element.rentDate)}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="fechafin">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha fin </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{2024}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{calcularFechaFin(element.rentDate, element.rentDays) | date:'dd/MM/yyyy'}} </mat-cell>
       </ng-container>
-      
-       -->
+    
         
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

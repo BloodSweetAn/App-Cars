@@ -13,7 +13,7 @@ import { RentService } from '../../../service/rent.service';
 })
 export class GuevaraListComponent implements OnInit {
   lista: Rent[] = [];
-  displayedColumns = ['id', 'clientName', 'rentDays', 'rentDate', 'pricePerDay' ,'plate', 'brand' ,'insurance', 'priceTotal'];
+  displayedColumns = ['id', 'clientName', 'rentDays', 'rentDate', 'pricePerDay' ,'plate', 'brand' ,'insurance', 'priceTotal', 'aniostotal','fechafin'];
   dataSource = new MatTableDataSource<Rent>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,6 +37,18 @@ export class GuevaraListComponent implements OnInit {
       this.dataSource.data=data;
     });
     //this.authorService.list().subscribe(data=> this.dataSource = new MatTableDataSource(data));
+  }
+
+  calcularAntiguedad(rentDate: Date): number {
+    const currentYear = 2024;
+    const rentYear = new Date(rentDate).getFullYear();
+    return currentYear - rentYear;
+  }
+
+  calcularFechaFin(rentDate: Date, rentDays: number): Date {
+    const startDate = new Date(rentDate);
+    startDate.setDate(startDate.getDate() + rentDays);
+    return startDate;
   }
 
   filtrar(e:any){

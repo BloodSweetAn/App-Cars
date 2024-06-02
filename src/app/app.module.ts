@@ -32,6 +32,7 @@ import { GuevaraListComponent } from './component/rent/guevara-list/guevara-list
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSnackBarModule,
     MatRadioModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync(),

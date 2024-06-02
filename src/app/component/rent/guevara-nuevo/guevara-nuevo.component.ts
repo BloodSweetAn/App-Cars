@@ -43,7 +43,7 @@ export class GuevaraNuevoComponent {
 
     //date
     const maxDate = new Date;
-    maxDate.setDate(this.Todate.getDate()+1);
+    maxDate.setDate(this.Todate.getDate());
     maxDate.setHours(0,0,0,0);
 
     const invalidDate = this.form.get('rentDate')?.value <= maxDate;
@@ -62,7 +62,7 @@ export class GuevaraNuevoComponent {
             this.rentService.setList(data);//enviando la lista al suscriptor
           })
         });
-        this.router.navigate(['Guevara/listado']);
+        this.router.navigate(['Guevara/listado-rent']);
       }
     }else{
       this.openSnackBar("Agregue todos los campos requeridos", "Cerrar");
